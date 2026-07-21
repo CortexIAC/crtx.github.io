@@ -8,11 +8,11 @@ export function renderMarketplace() {
   const apps = getAllApps();
 
   const communityPlugins = [
-    { name: 'Terminal Plus', icon: '💻', desc: 'Advanced multi-tab terminal with SSH, Docker, and session persistence.', author: 'Community', downloads: 521, url: 'https://github.com/CortexIAC/crtx.github.io/releases', verified: false },
-    { name: 'Audio Visualizer', icon: '🎵', desc: 'Real-time audio spectrum analyzer with FFT rendering and waveform display.', author: 'Community', downloads: 143, url: '#', verified: false },
-    { name: 'Weather Station', icon: '🌤', desc: 'Local weather monitoring with 7-day forecasts and historical charts.', author: 'Community', downloads: 67, url: '#', verified: false },
-    { name: 'PDF Toolkit', icon: '📄', desc: 'Merge, split, compress, and annotate PDFs entirely offline.', author: 'Community', downloads: 412, url: '#', verified: false },
-    { name: 'Network Scanner', icon: '🌐', desc: 'LAN device discovery, port scanning, and service fingerprinting.', author: 'Community', downloads: 176, url: '#', verified: false },
+    { id: 'terminal-plus', name: 'Terminal Plus', icon: '💻', desc: 'Advanced multi-tab terminal with SSH, Docker, and session persistence.', author: 'Community', downloads: 521, url: '#/plugin/terminal-plus', verified: false },
+    { id: 'audio-visualizer', name: 'Audio Visualizer', icon: '🎵', desc: 'Real-time audio spectrum analyzer with FFT rendering and waveform display.', author: 'Community', downloads: 143, url: '#/plugin/audio-visualizer', verified: false },
+    { id: 'weather-station', name: 'Weather Station', icon: '🌤', desc: 'Local weather monitoring with 7-day forecasts and historical charts.', author: 'Community', downloads: 67, url: '#/plugin/weather-station', verified: false },
+    { id: 'pdf-toolkit', name: 'PDF Toolkit', icon: '📄', desc: 'Merge, split, compress, and annotate PDFs entirely offline.', author: 'Community', downloads: 412, url: '#/plugin/pdf-toolkit', verified: false },
+    { id: 'network-scanner', name: 'Network Scanner', icon: '🌐', desc: 'LAN device discovery, port scanning, and service fingerprinting.', author: 'Community', downloads: 176, url: '#/plugin/network-scanner', verified: false },
   ];
 
   page.innerHTML = `
@@ -161,8 +161,8 @@ export function renderMarketplace() {
       </div>
     `).join('');
 
-    // Click card to navigate to app detail (for official apps)
-    grid.querySelectorAll('.plugin-card[data-type="official"]').forEach(card => {
+    // Click card to navigate to detail page
+    grid.querySelectorAll('.plugin-card').forEach(card => {
       card.addEventListener('click', (e) => {
         if (e.target.closest('.install-btn') || e.target.closest('a')) return;
         const btn = card.querySelector('.install-btn');

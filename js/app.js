@@ -8,6 +8,7 @@ import { renderAppDetail } from './pages/AppDetail.js';
 import { renderRoadmap } from './pages/Roadmap.js';
 import { renderNeural } from './pages/Neural.js';
 import { renderMarketplace } from './pages/Marketplace.js';
+import { renderPluginDetail } from './pages/PluginDetail.js';
 import { renderStatus } from './pages/Status.js';
 import { renderApiDocs } from './pages/ApiDocs.js';
 import { renderCIE } from './pages/CIE.js';
@@ -71,6 +72,7 @@ function initRoutes() {
   register('/cie', renderPage(renderCIE));
   register('/architecture', renderPage(renderArchitecture));
   register('/marketplace', renderPage(renderMarketplace));
+  register('/plugin/:id', renderPage(renderPluginDetail));
   register('/status', renderPage(renderStatus));
   register('/api-docs', renderPage(renderApiDocs));
   register('/downloads', renderPage(renderDownloads));
