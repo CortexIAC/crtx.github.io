@@ -61,6 +61,7 @@ export const appsData = {
     platform: ["Windows", "Linux", "macOS"],
     language: ["Python"],
     dependencies: ["Ollama (local LLM)", "SQLite"],
+    downloadUrl: "/downloads/cie-server.zip",
     github: "https://github.com/CortexIAC/synapse-cie",
     documentation: "#/docs/cie-architecture",
     downloads: {
@@ -216,6 +217,7 @@ export const appsData = {
     platform: ["Windows", "Linux"],
     language: ["Python (Tkinter)"],
     dependencies: ["None (standalone)"],
+    downloadUrl: "/downloads/cortex-notes.zip",
     github: "https://github.com/CortexIAC/cortex-notes",
     documentation: "#/docs/cortex-notes-syntax",
     downloads: {
@@ -358,6 +360,7 @@ export const appsData = {
     platform: ["Windows (Desktop)"],
     language: ["Python (PySide6)"],
     dependencies: ["sounddevice", "numpy", "scipy", "soundfile"],
+    downloadUrl: "/downloads/cortex-voicelab.zip",
     github: "https://github.com/CortexIAC/cortex-voicelab",
     documentation: "#/docs/voicelab-guide",
     downloads: {

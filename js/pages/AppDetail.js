@@ -211,7 +211,7 @@ export function renderAppDetail(params) {
           `).join('')}
         </div>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="${app.github}/archive/refs/heads/main.zip" target="_blank" class="btn btn-primary">⬇ Download Source</a>
+          <a href="${app.downloadUrl || app.github + '/archive/refs/heads/main.zip'}" download="${!!app.downloadUrl}" target="_blank" class="btn btn-primary">⬇ ${app.downloadUrl ? 'Download Test Package' : 'Download Source'}</a>
           <a href="${app.github}" target="_blank" class="btn btn-secondary">View on GitHub</a>
           ${app.documentation.startsWith('#') ? `
             <button class="btn btn-secondary" data-nav="${app.documentation.replace('#', '')}">Documentation</button>
