@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Docs</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/main.js"></script>
+
+<style>
+body {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="logo" onclick="goHome()">SynAura</div>
+
+<div class="nav-right">
+<a href="index.html" class="nav-link">Home</a>
+<a href="system.html" class="nav-link">System</a>
+<a href="ai.html" class="nav-link">AI</a>
+<a href="docs.html" class="nav-link active">Docs</a>
+<a href="marketplace.html" class="nav-link">Market</a>
+</div>
+</nav>
+
+<!-- DOCS -->
+ <section class="section">
+<input id="docSearch" placeholder="Search docs..." class="doc-search">
+</section>
+<section class="section docs-layout">
+
+<!-- SIDEBAR -->
+<div class="docs-sidebar">
+
+<div class="doc-link active" onclick="openDoc('getting-started', this)">
+Getting Started
+</div>
+
+<div class="doc-link" onclick="openDoc('node-system', this)">
+Node System
+</div>
+
+<div class="doc-link" onclick="openDoc('api', this)">
+API
+</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="docs-content">
+
+<h2 id="docTitle">Getting Started</h2>
+
+<div class="card" id="docBody">
+<p>Select a section from the left to view documentation.</p>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

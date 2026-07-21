@@ -1,0 +1,14 @@
+{
+  "name": "synapse-ecosystem",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.38.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
