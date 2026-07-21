@@ -148,6 +148,27 @@ app.delete("/api/blog/:id", requireRole("admin"), async (req, res) => {
   res.json({ success: true });
 });
 
+// ─── Plugin Request Routes ───
+app.get("/api/requests", (req, res) => {
+  res.json(req.db.pluginRequests || []);
+});
+
+app.post("/api/requests", async (req, res) => {
+  const { name, desc } = req.body;
+  if (!name || !desc) return res.status(400).json({ error: "Name and description required" });
+  req.db.pluginRequests = req.db.pluginRequests || [];
+  const request = {
+    id: Date.now().toString(36),
+    name, desc,
+    author: req.user?.username || "Anonymous",
+    date: new Date().toISOString().split("T")[0],
+    votes: 0,
+  };
+  req.db.pluginRequests.push(request);
+  await saveData(req.db);
+  res.json({ success: true, request });
+});
+
 // ─── Admin Routes ───
 app.get("/api/admin/users", requireRole("admin"), (req, res) => {
   res.json(req.db.users.map(u => ({

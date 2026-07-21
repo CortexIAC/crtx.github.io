@@ -54,6 +54,9 @@ export const api = {
   updatePost: (id, data) => request("PUT", `/blog/${id}`, data),
   deletePost: (id) => request("DELETE", `/blog/${id}`),
 
+  getRequests: () => request("GET", "/requests"),
+  createRequest: (name, desc) => request("POST", "/requests", { name, desc }),
+
   getUsers: () => request("GET", "/admin/users"),
   setRole: (userId, role) => request("PUT", `/admin/users/${userId}/role`, { role }),
   banUser: (userId) => request("POST", `/admin/users/${userId}/ban`),
