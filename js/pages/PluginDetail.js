@@ -109,7 +109,7 @@ export function renderPluginDetail(params) {
             <div style="font-size:32px;margin-bottom:8px;">📦</div>
             <h4 style="font-size:15px;font-weight:500;">${plugin.name}</h4>
             <p class="body-small">${plugin.downloadSize}</p>
-            <a href="${plugin.github}/releases" target="_blank" class="btn btn-primary" style="margin-top:12px;padding:8px 24px;font-size:13px;">Download</a>
+            <a href="/downloads/${plugin.id}.zip" download class="btn btn-primary" style="margin-top:12px;padding:8px 24px;font-size:13px;">Download</a>
           </div>
         </div>
       </section>

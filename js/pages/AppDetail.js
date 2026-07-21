@@ -210,10 +210,11 @@ export function renderAppDetail(params) {
             </div>
           `).join('')}
         </div>
-        <div style="margin-top:24px;">
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="${app.github}/archive/refs/heads/main.zip" target="_blank" class="btn btn-primary">⬇ Download Source</a>
           <a href="${app.github}" target="_blank" class="btn btn-secondary">View on GitHub</a>
           ${app.documentation.startsWith('#') ? `
-            <button class="btn btn-secondary" style="margin-left:12px;" data-nav="${app.documentation.replace('#', '')}">Documentation</button>
+            <button class="btn btn-secondary" data-nav="${app.documentation.replace('#', '')}">Documentation</button>
           ` : ''}
         </div>
       </section>

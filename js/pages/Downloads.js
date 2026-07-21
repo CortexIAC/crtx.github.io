@@ -29,7 +29,7 @@ export function renderDownloads() {
                   ${Object.entries(app.downloads).map(([platform, info]) => {
                     const icon = platform === 'windows' ? '⊞' : platform === 'linux' ? '🐧' : platform === 'macos' ? '🍎' : platform === 'raspi' ? '🍓' : '📦';
                     return `
-                      <div class="dc-platform" data-platform="${platform}" data-url="${app.github}/releases" title="${info.filename}">
+                      <div class="dc-platform" data-platform="${platform}" data-url="${app.github}/archive/refs/heads/main.zip" title="${info.filename}">
                         ${icon} ${platform.charAt(0).toUpperCase() + platform.slice(1)}
                       </div>
                     `;
