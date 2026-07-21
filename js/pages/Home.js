@@ -41,8 +41,8 @@ export function renderHome() {
       <div class="container">
         <div class="stats-bar">
           <div class="stat-item">
-            <div class="stat-number" data-count="10">0</div>
-            <div class="stat-label">Applications</div>
+            <div class="stat-number" data-count="8">0</div>
+            <div class="stat-label">Downloadable Apps</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" data-count="5">0</div>
@@ -197,10 +197,12 @@ export function renderHome() {
   requestAnimationFrame(() => {
     const strip = page.querySelector('.app-preview-strip');
     if (strip) {
-      const apps = getAllApps().slice(0, 3);
-      apps.forEach(app => {
-        strip.appendChild(createAppCard(app));
-      });
+      const apps = getAllApps().filter(a => a.hasPackage).slice(0, 3);
+      if (apps.length === 0) {
+        strip.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-tertiary);grid-column:1/-1;">Downloadable apps coming soon.</div>';
+      } else {
+        apps.forEach(app => { strip.appendChild(createAppCard(app)); });
+      }
     }
   });
 

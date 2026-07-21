@@ -121,7 +121,7 @@ export function renderMarketplace() {
   function renderGrid() {
     const grid = page.querySelector('#pluginGrid');
     const combined = [
-      ...apps.map(a => ({
+      ...apps.filter(a => a.hasPackage).map(a => ({
         id: a.id, name: a.name, icon: a.icon, desc: a.description,
         author: 'CRTX', downloads: 0, url: `#/app/${a.id}`,
         verified: true, version: a.currentVersion, status: a.developmentStatus,
