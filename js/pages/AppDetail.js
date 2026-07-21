@@ -137,12 +137,14 @@ export function renderAppDetail(params) {
           <h2 class="heading-1">FAQ</h2>
           <div style="display:flex;flex-direction:column;gap:16px;max-width:720px;">
             ${app.faq.map(item => `
-              <div class="card card-glow" style="cursor:pointer;" onclick="this.querySelector('.faq-answer').classList.toggle('visible');this.querySelector('.faq-chevron').classList.toggle('open')">
+              <div class="card card-glow faq-item" data-idx="${app.faq.indexOf(item)}" style="cursor:pointer;">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                   <h4 style="font-size:16px;font-weight:500;color:var(--text-primary);">${item.q}</h4>
                   <span class="faq-chevron" style="transition:transform 0.2s;font-size:14px;color:var(--text-tertiary);">▼</span>
                 </div>
-                <p class="faq-answer body-regular" style="margin-top:0;max-height:0;overflow:hidden;transition:all 0.3s var(--ease-out);">${item.a}</p>
+                <div class="faq-answer" style="max-height:0;overflow:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);">
+                  <p class="body-regular" style="margin-top:16px;">${item.a}</p>
+                </div>
               </div>
             `).join('')}
           </div>
@@ -245,10 +247,16 @@ export function renderAppDetail(params) {
     });
   });
 
-  // FAQ toggle
-  page.querySelectorAll('.faq-answer').forEach(el => {
-    el.addEventListener('click', () => {
-      // handled by onclick on parent
+  // FAQ toggle — click the card to expand/collapse
+  page.querySelectorAll('.faq-item').forEach(card => {
+    card.addEventListener('click', () => {
+      const answer = card.querySelector('.faq-answer');
+      const chevron = card.querySelector('.faq-chevron');
+      if (!answer) return;
+      const isOpen = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
+      answer.style.maxHeight = isOpen ? '0px' : `${answer.scrollHeight + 40}px`;
+      if (chevron) chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+      card.style.borderColor = isOpen ? 'var(--border-subtle)' : 'var(--border-accent)';
     });
   });
 
